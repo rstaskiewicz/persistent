@@ -1,5 +1,6 @@
 package org.example.persistent
 
+import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.web.bind.annotation.*
 
@@ -9,7 +10,7 @@ class BookController(
     private val bookService: BookService
 ) {
     @GetMapping
-    fun getAll(pageable: Pageable) = bookService.getAll(pageable)
+    fun getAll(pageable: Pageable): Page<Book> = bookService.getAll(pageable)
 
     @PostMapping
     fun create(@RequestBody book: Book) {
