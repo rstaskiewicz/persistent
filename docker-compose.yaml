@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  per-postgres:
+    image: postgres:15.2
+    container_name: per-postgres
+    environment:
+      - POSTGRES_DB=per
+      - POSTGRES_USER=per
+      - POSTGRES_PASSWORD=per
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./postgres_init:/docker-entrypoint-initdb.d:ro"
+      - per-pgdata:/var/lib/postgresql/data
+volumes:
+  per-pgdata:

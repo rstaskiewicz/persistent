@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: per
+    password: per
+    url: jdbc:postgresql://localhost:5432/per
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+  liquibase:
+    change-log: classpath:/db/changelog/master.xml
